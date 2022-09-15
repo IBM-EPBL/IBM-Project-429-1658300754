@@ -1,3 +1,5 @@
+// C++ code
+//
 int distanceThreshold = 0;
 
 int cm = 0;
@@ -21,10 +23,10 @@ long readUltrasonicDistance(int triggerPin, int echoPin)
 void setup()
 {
   Serial.begin(9600);
-
   pinMode(2, OUTPUT);
   pinMode(3, OUTPUT);
   pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
 }
 
 void loop()
@@ -32,7 +34,7 @@ void loop()
   // set threshold distance to activate LEDs
   distanceThreshold = 350;
   // measure the ping time in cm
-  cm = 0.01723 * readUltrasonicDistance(7, 7);
+  cm = 0.01723 * readUltrasonicDistance(7, 6);
   // convert to inches by dividing by 2.54
   inches = (cm / 2.54);
   Serial.print(cm);
@@ -58,11 +60,13 @@ void loop()
     digitalWrite(2, HIGH);
     digitalWrite(3, HIGH);
     digitalWrite(4, HIGH);
+    digitalWrite(5, HIGH); 
   }
   if (cm <= distanceThreshold - 350) {
     digitalWrite(2, HIGH);
     digitalWrite(3, HIGH);
     digitalWrite(4, HIGH);
+    digitalWrite(5, HIGH);
   }
   delay(100); // Wait for 100 millisecond(s)
 }
