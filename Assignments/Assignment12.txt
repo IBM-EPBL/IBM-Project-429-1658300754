@@ -1,0 +1,19 @@
+import random
+import time
+def detect(temperature,humidity):
+    if temperature > 45:
+        print("{:.2f}C -> HIGH TEMPERATURE DETECTED!!!".format(temperature))
+        print()
+    if humidity <14:
+        print("{}kg-1 -> LESS HUMIDITY ,MAY INCREASE TEMPERATURE!!!".format(humidity)) #humidity inversely proportional to temperature
+        print()
+    else:
+        print("{:.2f}C -> NORMAL TEMPERATURE".format(temperature))
+        print()
+    time.sleep(2) # causing a delay of 2 seconds to visualise each of the output.
+    return 0
+#if the temperature is higher than 40' C ,it will detect .
+while(True):
+    temperature=random.uniform(-15,65)
+    humidity=random.randint(0,56)
+    detect(temperature,humidity)
